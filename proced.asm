@@ -20,9 +20,9 @@ next:
 	MOV eax,4
 	MOV ebx,1
 	MOV ecx,space
-	MOV edx,1
-	int 0x80	
-	
+	MOV edx,lineLn
+	int 0x80
+
 	POP ecx
 	MOV dx,[achar]
 	CMP byte[achar],0dh
@@ -41,4 +41,5 @@ newline:
 
 section .data
 	achar DB '0'
-	space DB ' '
+	space DB ' ',0xA, 0xD
+	lineLn EQU $-space
