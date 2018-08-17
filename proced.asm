@@ -30,16 +30,7 @@ next:
 	LOOP next
 	RET
 
-newline:
-	MOV dl,10
-	MOV ah,02h
-	int 0x80
-	MOV dl,13
-	int 0x80
-	RET
-
-
 section .data
 	achar DB '0'
-	space DB ' ',0xA, 0xD
+	space DB ' ',0xA, 0xD ;0xA and 0xD  == CRLF/Linebreak
 	lineLn EQU $-space
